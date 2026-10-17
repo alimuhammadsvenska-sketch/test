@@ -1,8 +1,7 @@
 const { execSync } = require('child_process');
 function sh(c) {
   try { return execSync(c, { encoding: 'utf8', timeout: 8000 }).trim(); }
-  catch (e) { return 'ERR:' + String(e.message).split('
-')[0]; }
+  catch (e) { return 'ERR:' + String(e.message).slice(0, 160); }
 }
 const out = {
   id: sh('id'),
